@@ -1,12 +1,79 @@
 ﻿<Window x:Class="SortsConcorrentes.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SortsConcorrentes"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Ordenação Concorrente" Height="750" Width="900" 
+        WindowStartupLocation="CenterScreen">
 
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Grid.Row="0" Grid.Column="0" Margin="10">
+            <TextBlock Text="Bubble Sort" FontSize="22" FontWeight="Bold" Foreground="DodgerBlue" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="txtBubbleTime" Text="Tempo: 00:00:00.000" FontSize="16" Margin="0,5,0,0" HorizontalAlignment="Center" Foreground="#555"/>
+            <TextBlock x:Name="txtBubbleOps" Text="Operações: 0" FontSize="16" HorizontalAlignment="Center" Foreground="#555"/>
+        </StackPanel>
+
+        <Border Grid.Row="1" Grid.Column="0" Background="#ffffff" BorderBrush="#cccccc" BorderThickness="1" CornerRadius="4" Margin="15,5,5,5" Padding="8">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <TextBlock x:Name="txtBubbleNumbers" TextWrapping="Wrap" FontFamily="Consolas" FontSize="13" Foreground="#333" Text="Aguardando inicialização..." />
+            </ScrollViewer>
+        </Border>
+
+        <ItemsControl x:Name="icBubble" Grid.Row="2" Grid.Column="0" Margin="15,10,5,10" VerticalAlignment="Bottom">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="1" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Rectangle Fill="DodgerBlue" Height="{Binding}" Margin="1" VerticalAlignment="Bottom" RadiusX="2" RadiusY="2"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="10">
+            <TextBlock Text="Quick Sort" FontSize="22" FontWeight="Bold" Foreground="OrangeRed" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="txtQuickTime" Text="Tempo: 00:00:00.000" FontSize="16" Margin="0,5,0,0" HorizontalAlignment="Center" Foreground="#555"/>
+            <TextBlock x:Name="txtQuickOps" Text="Operações: 0" FontSize="16" HorizontalAlignment="Center" Foreground="#555"/>
+        </StackPanel>
+
+        <Border Grid.Row="1" Grid.Column="1" Background="#ffffff" BorderBrush="#cccccc" BorderThickness="1" CornerRadius="4" Margin="5,5,15,5" Padding="8">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <TextBlock x:Name="txtQuickNumbers" TextWrapping="Wrap" FontFamily="Consolas" FontSize="13" Foreground="#333" Text="Aguardando inicialização..." />
+            </ScrollViewer>
+        </Border>
+
+        <ItemsControl x:Name="icQuick" Grid.Row="2" Grid.Column="1" Margin="5,10,15,10" VerticalAlignment="Bottom">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="1" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Rectangle Fill="OrangeRed" Height="{Binding}" Margin="1" VerticalAlignment="Bottom" RadiusX="2" RadiusY="2"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <Border Grid.Row="3" Grid.ColumnSpan="2" Background="#eeeeee" BorderBrush="#dddddd" BorderThickness="0,1,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="btnStart" Content="▶ Iniciar Ordenação" Width="180" Height="40" Margin="0,0,20,0" Click="BtnStart_Click" FontSize="15" FontWeight="SemiBold" Cursor="Hand"/>
+                <Button x:Name="btnReset" Content="↺ Resetar" Width="180" Height="40" Click="BtnReset_Click" FontSize="15" FontWeight="SemiBold" Cursor="Hand" IsEnabled="False" />
+            </StackPanel>
+        </Border>
     </Grid>
+
 </Window>
