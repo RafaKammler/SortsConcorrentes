@@ -19,9 +19,3 @@ Um projeto desenvolvido em **C#** utilizando **WPF (Windows Presentation Foundat
   * Concorrência e Paralelismo (*Multithreading* / *Tasks*)
   * *Data Binding* e Clonagem de Estados
   * Controle de execução assíncrona
-
-## Como Executar
-
-1. Clone este repositório para a sua máquina local:
-   ```bash
-   git clone [https://github.com/seu-usuario/nome-do-repositorio.git](https://github.com/seu-usuario/nome-do-repositorio.git)
